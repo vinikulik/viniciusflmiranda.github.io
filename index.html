@@ -100,6 +100,33 @@ function w3_close() {
     document.getElementById("mySidebar").style.display = "none";
     document.getElementById("myOverlay").style.display = "none";
 }
+	$(document).ready(function() {
+
+      var api_url = 'https://api.linkpreview.net'
+
+      var key = '5ccb9006afa9677569af35cc3b0551dcb2cd2e4506183' // real
+
+        $.ajax({
+
+          url: api_url + "?key=" + key + " &q=https://www.ferrari.com" ,
+
+          contentType: "application/json",
+
+          dataType: 'json',
+
+          success: function(result) {
+
+              $("#p1").text(result.title);
+
+              $("#p2").text(result.description);
+
+              $('#p3').attr('src',result.image);
+
+              $("#p4").text(result.url);
+
+          }
+
+        })
 </script>
 
 
