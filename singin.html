@@ -1,33 +1,105 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 
-<head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<meta name="description" content="">
-	<meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
-	<meta name="generator" content="Jekyll v3.8.5">
-	<link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/sign-in/">
-	<!-- Bootstrap core CSS -->
-	<link href="/docs/4.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-	<title>Login</title>
-	<link rel="stylesheet" type="text/css" href="singin.css">
-	<style>
-      .bd-placeholder-img {
-        font-size: 1.125rem;
-        text-anchor: middle;
-        -webkit-user-select: none;
-        -moz-user-select: none;
-        -ms-user-select: none;
-        user-select: none;
-      }
 
-      @media (min-width: 768px) {
-        .bd-placeholder-img-lg {
-          font-size: 3.5rem;
-        }
-      }
-    </style>
+	<head>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+
+  <script>
+
+    $(document).ready(function() {
+
+
+
+      $('#form1').on('submit', function(e) {
+
+        e.preventDefault();
+
+        
+
+        var api_url = 'https://api.linkpreview.net'
+
+        var key = '5ccb9525ad6e74755159c3ffa27fa10e40287ac64f332' // real
+
+        $.ajax({
+
+          url: api_url + "?key=" + key + "&q=" + $("#endereco").val(),
+
+          contentType: "application/json",
+
+          dataType: 'json',
+
+          success: function(result) {
+
+            $("#p1").text(result.title);
+
+            $("#p2").text(result.description);
+
+            $('#p3').attr('src', result.image);
+
+            $("#p4").text(result.url);
+
+          }
+
+        });
+
+        
+
+      });
+
+
+
+    });
+
+  </script>
+
+</head>
+
+
+
+<body>
+
+
+
+  <h1>Teste API</h1>
+
+
+
+  <form name="form1" id="form1">
+
+    URL:
+
+    <input type="text" id="endereco" name="endereco">
+
+    <br>
+
+    <input type="submit" value="ENVIAR">
+
+  </form>
+
+  <br><br>
+
+
+
+
+
+  <p id="p1"></p>
+
+  <p id="p2"></p>
+
+  <img id="p3" src="" />
+
+  <p id="p4"></p>
+
+
+
+</body>
+
+
+
+</html>
+
 
     <!-- Custom styles for this template -->
     <link href="signin.css" rel="stylesheet">
