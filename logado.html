@@ -2,54 +2,10 @@
 <html>
 	<body>
 	<head>
+<center>
+	BEM VINDO AO SITE
+	</center
 
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
-
-  <script>
-
-    $(document).ready(function() {
-
-
-
-      $('#form1').on('submit', function(e) {
-
-        e.preventDefault();
-
-        
-
-        var api_url = 'https://api.linkpreview.net'
-
-        var key = '5ccb9525ad6e74755159c3ffa27fa10e40287ac64f332' // real
-
-        $.ajax({
-
-          url: api_url + "?key=" + key + "&q=" + $("#endereco").val(),
-
-          contentType: "application/json",
-
-          dataType: 'json',
-
-          success: function(result) {
-
-            $("#p1").text(result.title);
-
-            $("#p2").text(result.description);
-
-            $('#p3').attr('src', result.image);
-
-            $("#p4").text(result.url);
-
-          }
-
-        });
-
-        
-
-      });
-
-
-
-    });
 
   </script>
 
