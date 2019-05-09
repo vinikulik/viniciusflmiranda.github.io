@@ -51,7 +51,7 @@ $(document).ready(function(){
        e.preventDefault();
        var len1 = $('#usuario').val();
        var len2 = $('#senha').val();
-       if (len1 == 'Rogerio' && len2 == '123') {
+       if (len1 == 'vinicius' && len2 == '123') {
          localStorage.setItem("usuario", $('#usuario').val());
          localStorage.setItem("senha", $('#senha').val());
 
